@@ -3,7 +3,7 @@ import { formatMetadata, MetadataSection } from "@/app/formatMetadata";
 
 // Props accepted by the sidebar component
 type Props = {
-  data: any;
+  data: Record<string, any>;
   onClose: () => void;
   isPinned: boolean;
   togglePin: () => void;
@@ -20,8 +20,6 @@ export default function MetadataSidebar({
   const scrollRef = useRef<HTMLDivElement>(null); // For scrolling to top on model component change
 
   const toggleCollapse = () => setIsCollapsed((prev) => !prev);
-
-  if (!data) return null;
 
   const sections: MetadataSection[] = formatMetadata(data); // Format raw metadata into structured sections
 

@@ -4,7 +4,7 @@ export type MetadataSection = {
 };
 
 // Formats raw component metadata into structured sections for display
-export function formatMetadata(data: any): MetadataSection[] {
+export function formatMetadata(data: Record<string, any>): MetadataSection[] {
   if (!data) return [];
 
   const sections: MetadataSection[] = [];

@@ -80,7 +80,7 @@ export default function Home() {
     };
 
     initViewer();
-  }, []);
+  }, [token]);
 
   // Keep the pinned state updated in a ref
   useEffect(() => {
