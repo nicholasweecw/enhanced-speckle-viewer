@@ -2,29 +2,29 @@
 
 An improved Speckle viewer built with Next.js and Tailwind CSS. It replicates the core functionality of the official viewer while enhancing UI/UX through a dark-themed metadata sidebar, interactive component selection, and polished design improvements.
 
-## 🔗 Live Demo
+## Live Demo
 
-👉 [https://enhanced-speckle-viewer.vercel.app](https://enhanced-speckle-viewer.vercel.app)
+[https://enhanced-speckle-viewer.vercel.app](https://enhanced-speckle-viewer.vercel.app)
 
-## 🧠 Approach
+## Approach
 This project enhances the Speckle Viewer experience by refining how metadata is surfaced and interacted with. The improvements prioritize:
 - Clarity: Metadata is grouped into clearly defined sections in a persistent sidebar layout
 - Responsiveness: Users can collapse or pin the sidebar to suit their viewing needs
 - Feedback: A loading spinner with real-time progress keeps users informed during model loading
 - Accessibility: Dark mode styling ensures comfortable viewing and reduces eye strain
 
-## ✨ Features
+## Features
 
-- ✅ Recreated 3D model viewer using Speckle’s open-source viewer
-- 🧱 Clickable components with a rich metadata sidebar
-- 📌 Pin & collapse sidebar for flexible viewing
-- 🌘 Dark-themed interface for better readability
-- ⏳ Animated spinner loader with real-time model loading progress
-- 🎯 Metadata persists when sidebar is pinned
-- 📜 Metadata display scrolls to top on selection
-- 🔐 Type-safe schema validation with Zod
+- Recreated 3D model viewer using Speckle’s open-source viewer
+- Clickable components with a rich metadata sidebar
+- Pin & collapse sidebar for flexible viewing
+- Dark-themed interface for better readability
+- Animated spinner loader with real-time model loading progress
+- Metadata persists when sidebar is pinned
+- Metadata display scrolls to top on selection
+- Type-safe schema validation with Zod
 
-## 💡 UI/UX Improvements
+## UI/UX Improvements
 
 Compared to the original Speckle viewer:
 
@@ -34,7 +34,7 @@ Compared to the original Speckle viewer:
 - Collapsible Sidebar: Added a collapse toggle to reduce visual clutter and offer a more focused viewing experience when needed
 - Improved Loading Feedback: Introduced a centered loading spinner with a real-time percentage indicator to provide clear and immediate feedback during model loading (instead of the subtle default progress bar in the original Speckle viewer)
 
-## 🚀 Possible Future Improvements
+## Possible Future Improvements
 - Metadata Search & Filtering: Implement a search bar and filter controls to allow users to quickly locate relevant metadata fields
 - Draggable Sidebar: Enable users to reposition the metadata sidebar for greater layout flexibility and personalization
 - Multi-Component Metadata Display: Support simultaneous display of metadata from multiple selected components for side-by-side comparison
@@ -44,7 +44,7 @@ Compared to the original Speckle viewer:
 - Standardized Metadata Parsing: Create a robust, flexible parser to gracefully handle possible structural inconsistencies across new Speckle models
 - Responsive Design: Ensure a seamless and adaptive experience across various devices, including tablets and mobile phones.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - [Next.js 14](https://nextjs.org)
 - [React](https://react.dev)
@@ -53,7 +53,7 @@ Compared to the original Speckle viewer:
 - [Zod](https://zod.dev) for metadata schema validation
 - [@speckle/viewer](https://github.com/specklesystems)
 
-## 📸 Screenshots
+## Screenshots
 
 Below are some key interface states captured from the deployed viewer:
 
@@ -65,8 +65,8 @@ Below are some key interface states captured from the deployed viewer:
 |-----------------------------|-------------------|
 | ![Pinned Sidebar](./screenshots/pinned.png) | ![Collapsed Sidebar](./screenshots/collapsed.png) |
 
-> 📝 _All screenshots are taken from the [live deployment](https://enhanced-speckle-viewer.vercel.app). For full interactivity, please explore the project directly._
+> _All screenshots are taken from the [live deployment](https://enhanced-speckle-viewer.vercel.app). For full interactivity, please explore the project directly._
 
-## 📄 License
+## License
 
 MIT
