@@ -46,12 +46,12 @@ Compared to the original Speckle viewer:
 
 ## Tech Stack
 
-- [Next.js 14](https://nextjs.org)
 - [React](https://react.dev)
+- [Next.js 14](https://nextjs.org)
 - [Tailwind CSS](https://tailwindcss.com)
 - [TypeScript](https://www.typescriptlang.org)
-- [Zod](https://zod.dev) for metadata schema validation
 - [@speckle/viewer](https://github.com/specklesystems)
+- [Zod](https://zod.dev) for metadata schema validation
 
 ## Screenshots
 
