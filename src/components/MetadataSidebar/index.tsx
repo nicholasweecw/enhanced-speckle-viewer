@@ -1,9 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import { formatMetadata, MetadataSection } from "@/app/formatMetadata";
+import {
+  formatMetadata,
+  MetadataSection,
+  Metadata,
+} from "@/app/formatMetadata";
 
 // Props accepted by the sidebar component
 type Props = {
-  data: Record<string, any>;
+  data: Metadata;
   onClose: () => void;
   isPinned: boolean;
   togglePin: () => void;

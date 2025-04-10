@@ -1,12 +1,63 @@
+import { z } from "zod";
+
 export type MetadataSection = {
   title: string;
   entries: { label: string; value: string }[];
 };
 
-// Formats raw component metadata into structured sections for display
-export function formatMetadata(data: Record<string, any>): MetadataSection[] {
-  if (!data) return [];
+// Zod schema to validate and type Speckle model metadata
+export const MetadataSchema = z.object({
+  name: z.string().optional(),
+  speckle_type: z.string().optional(),
+  units: z.string().optional(),
+  id: z.string(),
+  applicationId: z.string().optional(),
+  displayStyle: z
+    .object({
+      color: z.union([z.number(), z.string()]),
+      linetype: z.string(),
+      lineweight: z.number(),
+      lineSource: z.string(),
+    })
+    .optional(),
+  renderMaterial: z
+    .object({
+      name: z.string(),
+      diffuse: z.union([z.string(), z.number()]),
+      opacity: z.number(),
+      metalness: z.number(),
+      roughness: z.number(),
+    })
+    .optional(),
+  transform: z
+    .object({
+      matrix: z.array(z.number()).min(16),
+    })
+    .optional(),
+  definition: z
+    .object({
+      name: z.string(),
+      geometry: z.array(z.any()).optional(),
+      basePoint: z
+        .object({
+          x: z.number(),
+          y: z.number(),
+          z: z.number(),
+        })
+        .optional(),
+    })
+    .optional(),
+  userStrings: z.record(z.any()).optional(),
+});
 
+export type Metadata = z.infer<typeof MetadataSchema>;
+
+// Formats raw component metadata into structured sections for display
+export function formatMetadata(rawData: Metadata): MetadataSection[] {
+  const parsed = MetadataSchema.safeParse(rawData);
+  if (!parsed.success) return [];
+
+  const data = parsed.data;
   const sections: MetadataSection[] = [];
 
   // 1. Basic Info — Always shown for every component

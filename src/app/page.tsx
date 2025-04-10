@@ -12,10 +12,13 @@ import {
 import { CameraController, SelectionExtension } from "@speckle/viewer";
 import MetadataSidebar from "@/components/MetadataSidebar";
 import Loader from "@/components/Loader";
+import { Metadata, MetadataSchema } from "@/app/formatMetadata";
 
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null); // Reference to the 3D container
-  const [selectedMetadata, setSelectedMetadata] = useState<any | null>(null);
+  const [selectedMetadata, setSelectedMetadata] = useState<Metadata | null>(
+    null
+  );
   const [isSidebarPinned, setIsSidebarPinned] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [loadProgress, setLoadProgress] = useState(0); // Loading progress (0–100)
@@ -66,10 +69,10 @@ export default function Home() {
       viewer.on(ViewerEvent.ObjectClicked, (event) => {
         if (event?.hits && event?.hits.length > 0) {
           const node = event.hits[0].node;
-          const metadata = node.model.raw;
-
-          console.log("Metadata:", metadata);
-          setSelectedMetadata(metadata); // Show sidebar with metadata
+          const parsed = MetadataSchema.safeParse(node.model.raw);
+          if (parsed.success) {
+            setSelectedMetadata(parsed.data); // Show sidebar with metadata
+          }
         } else {
           // Hide sidebar if not pinned
           if (!pinnedRef.current) {
